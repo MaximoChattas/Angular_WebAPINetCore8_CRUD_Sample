@@ -4,6 +4,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+var dbConnectionString = Environment.GetEnvironmentVariable("DBCONNECTIONSTRING");
+
+// if (string.IsNullOrEmpty(dbConnectionString))
+// {
+//     throw new InvalidOperationException("Database connection string is missing or not set.");
+// }
 
 // Add services to the container.
 builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
@@ -14,8 +20,7 @@ builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
 }));
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-   options.UseSqlServer(
-       builder.Configuration.GetConnectionString("DefaultConnection")));
+   options.UseSqlServer(dbConnectionString));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

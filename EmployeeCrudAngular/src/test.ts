@@ -1,4 +1,6 @@
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
+(window as any)['env'] = (window as any)['env'] || {};
+(window as any)['env']['apiUrl'] = (window as any)['env']['apiUrl'] || 'http://localhost:7150/api/Employee';
 
 import 'zone.js/dist/zone-testing';
 import { getTestBed } from '@angular/core/testing';
