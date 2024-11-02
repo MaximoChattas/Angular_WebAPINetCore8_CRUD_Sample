@@ -435,7 +435,8 @@ stages:
           testResultsFormat: 'JUnit'
           testResultsFiles: '*.xml'
           searchFolder: '$(frontPath)/cypress/results'
-          testRunTitle: 'Cypress Integration Tests'
+          testRunTitle: 'Cypress Web App Tests'
+          failTaskOnFailedTests: true
 
 # -------------------------------------------------------------------------------
 # |       STAGE DEPLOY FRONTEND AND BACKEND TO AZURE WEB APPS PROD                 |
@@ -608,7 +609,8 @@ stages:
             testResultsFormat: 'JUnit'
             testResultsFiles: '*.xml'
             searchFolder: '$(frontPath)/cypress/results'
-            testRunTitle: 'Cypress Integration Tests'
+            testRunTitle: 'Cypress Container Instances Tests'
+            failTaskOnFailedTests: true
 
 
 # -------------------------------------------------------------------------------
@@ -799,7 +801,8 @@ stages:
             testResultsFormat: 'JUnit'
             testResultsFiles: '*.xml'
             searchFolder: '$(frontPath)/cypress/results'
-            testRunTitle: 'Cypress Integration Tests'
+            testRunTitle: 'Cypress App Services Tests'
+            failTaskOnFailedTests: true
 
 # -------------------------------------------------------------------------------
 # |     STAGE DEPLOY FRONTEND AND BACKEND TO AZURE APP SERVICES PROD             |
